@@ -1,7 +1,7 @@
 {
-  "name": "wt-server",
+  "name": "mock-server",
   "version": "1.0.1",
-  "description": "A mock sever created by the wotuFE",
+  "description": "A mock sever created by harrison",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
