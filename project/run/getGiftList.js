@@ -23,10 +23,19 @@ function makeIns(ctx) {
     let list = []
     for (let i = 0; i < totalNum; i++) {
         let fileType = presentType === 2 ? '' : presentType === 1 ? 'mp4' : fileT[Random.integer(0,1)]
-        let gradeIndex = fitGrade && fitGrade.length ? fitGrade[(i+1)%(fitGrade.length)] : Random.integer(0,11)
+        let gradeIndex
+        if (fitGrade) {
+            if (fitGrade instanceof Array) {
+                gradeIndex = fitGrade[(i+1)%(fitGrade.length)]
+            } else {
+                gradeIndex = fitGrade
+            }
+        } else {
+            gradeIndex = Random.integer(0,11)
+        }
         let gift = {
             id: 0,
-            name: '【' + gS[gradeIndex] +'】' + Random.ctitle(12,20) + '.' + fileType,
+            name: (presentType === 2 ? '' : '【' + gS[gradeIndex] +'】')+ Random.ctitle(12,20) + '.' + fileType,
             type: presentType,
             coverPicUrl: cU[presentType],
             fileType: fileType,
